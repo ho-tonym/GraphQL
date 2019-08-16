@@ -26,6 +26,7 @@
       "no-shadow": "off",
       "object-curly-newline" : "off",
       "lines-between-class-members" : "off",
-      "max-len":"off"
+      "max-len":"off",
+      "no-use-before-define":"warn"
     }
 }
