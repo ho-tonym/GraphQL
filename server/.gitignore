@@ -19,7 +19,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+package-lock.json
 /node_modules
+#.eslintrc.json
 .sass-cache/
 *.css.map
 *.sass.map
