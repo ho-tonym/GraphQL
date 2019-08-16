@@ -1,2 +1,2 @@
 # GraphQL
-Create a fullstack application using GraphQL for learning
+Create a full stack application using GraphQL for learning
