@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+import { ListGroup } from 'react-bootstrap'
 import { graphql } from 'react-apollo';
 import { getBookQuery } from '../queries/queries';
 
@@ -9,15 +10,16 @@ class BookDetails extends Component {
       if(book){
           return(
               <div>
-                  <h2>{ book.name }</h2>
-                  <p>{ book.genre }</p>
-                  <p>{ book.author.name }</p>
-                  <p>All books by this author:</p>
-                  <ul className="other-books">
-                      { book.author.books.map(item => {
-                          return <li key={item.id}>{ item.name }</li>
-                      })}
-                  </ul>
+                  <p><b>Title: </b>{ book.name }</p>
+                  <p><b>Genre: </b>{ book.genre }</p>
+                  <p><b>Author: </b>{ book.author.name }</p>
+                  <p><b>All books by this author:</b></p>
+                  <ListGroup className="other-books">
+                    { book.author.books.map(item => {
+                        return <ListGroup.Item key={item.id}>{ item.name }</ListGroup.Item>
+                    })
+                  }
+                  </ListGroup>
               </div>
           );
       } else {
@@ -25,7 +27,6 @@ class BookDetails extends Component {
       }
   }
   render() {
-    console.log(this.props)
     return(
       <div id="book-details">
         { this.displayBookDetails() }

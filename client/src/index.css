@@ -1,13 +1,57 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* body{
+    background: #eee;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+ul{
+  list-style-type:none;
 }
+
+form{
+    box-shadow: -2px -3px 5px rgba(0,0,0,0.3);
+    display: flex;
+    background: #fff;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+form label{
+    text-align: left;
+    padding: 6px;
+}
+
+form input, form select{
+    margin: 4px 6px;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+form button{
+  right: 0;
+  color: #fff;
+  font-size: 2em;
+  background: #007bff;
+  border: 0;
+  padding: 0 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+#book-details{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: #007bff;
+    padding: 30px;
+    overflow: auto;
+    box-shadow: -2px -3px 5px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    color: #fff;
+} */

@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Button, Form } from 'react-bootstrap'
 import { graphql } from 'react-apollo'
 import { flowRight as compose } from 'lodash';
 import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries';
+
 
 class AddBook extends Component {
   constructor(props) {
@@ -53,30 +55,27 @@ class AddBook extends Component {
 
   render() {
     return(
-      <form id="add-book" onSubmit={this.submitForm}>
-        <div className="field">
-          <label htmlFor="bookName">
-            Book name:
-            <input type="text" id="bookName" onChange={this.handleNameChange} />
-          </label>
-        </div>
-        <div className="field">
-          <label htmlFor="genre">
-            Genre:
-            <input type="text" id="bookName" onChange={this.handleGenreChange} />
-          </label>
-        </div>
-        <div className="field">
-          <label htmlFor="author">
-            Author:
-            <select id="author" onChange={this.handleAuthorChange}>
-              <option>Select author</option>
+      <>
+        <Form onSubmit={this.submitForm}>
+          <Form.Group controlId="book-name">
+            <Form.Label>Book Name</Form.Label>
+            <Form.Control type="text" onChange={this.handleNameChange} placeholder="Enter a book name" />
+          </Form.Group>
+          <Form.Group controlId="genre">
+            <Form.Label>Genre</Form.Label>
+            <Form.Control type="text" placeholder="Enter a genre" />
+          </Form.Group>
+          <Form.Group controlId="author">
+            <Form.Label>Select author</Form.Label>
+            <Form.Control as="select">
               {this.displayAuthors()}
-            </select>
-          </label>
-        </div>
-        <button type="submit">+</button>
-      </form>
+            </Form.Control>
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </>
     )
   }
 }

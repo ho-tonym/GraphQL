@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ListGroup } from 'react-bootstrap'
 import { graphql } from 'react-apollo'
 import { getBooksQuery } from '../queries/queries';
 
@@ -13,12 +14,17 @@ class BookList extends Component {
   }
 
   displayBooks() {
-    let { data } = this.props
+    const { data } = this.props
     if(data.loading) {
-      return(<div>Loading books...</div>)
+      return(<ListGroup.Item>Loading books...</ListGroup.Item>)
     }
     return data.books.map(book => (
-      <li key={ book.id } onClick={ (e) => this.setState({ selected: book.id }) }>{ book.name }</li>
+      <ListGroup.Item
+        key={ book.id }
+        onClick={ (e) => this.setState({ selected: book.id }) }
+      >
+        { book.name }
+      </ListGroup.Item>
     ))
   }
 
@@ -26,9 +32,11 @@ class BookList extends Component {
     const { selected } = this.state
     return (
       <>
-        <ul className="BookList">
+        <ListGroup className="BookList">
           {this.displayBooks()}
-        </ul>
+        </ListGroup>
+
+        <hr />
         <BookDetails bookId={selected} />
       </>
     )
