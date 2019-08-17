@@ -55,36 +55,35 @@ class AddBook extends Component {
 
   render() {
     return(
-      <>
-        <Form onSubmit={this.submitForm}>
-          <Form.Group controlId="book-name">
-            <Form.Label>Book Name</Form.Label>
-            <Form.Control type="text" onChange={this.handleNameChange} placeholder="Enter a book name" />
-          </Form.Group>
-          <Form.Group controlId="genre">
-            <Form.Label>Genre</Form.Label>
-            <Form.Control type="text" placeholder="Enter a genre" />
-          </Form.Group>
-          <Form.Group controlId="author">
-            <Form.Label>Select author</Form.Label>
-            <Form.Control as="select">
-              {this.displayAuthors()}
-            </Form.Control>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </>
+      <Form onSubmit={this.submitForm}>
+        <Form.Group controlId="book-name">
+          <Form.Label>Book Name</Form.Label>
+          <Form.Control type="text" onChange={this.handleNameChange} placeholder="Enter a book name" />
+        </Form.Group>
+        <Form.Group controlId="genre">
+          <Form.Label>Genre</Form.Label>
+          <Form.Control type="text" placeholder="Enter a genre" />
+        </Form.Group>
+        <Form.Group controlId="author">
+          <Form.Label>Select author</Form.Label>
+          <Form.Control as="select">
+            {this.displayAuthors()}
+          </Form.Control>
+        </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
     )
   }
 }
 
-// export default graphql(getAuthorsQuery)(AddBook)
 export default compose(
-  graphql(getAuthorsQuery, { name: "getAuthorsQuery" }), // name is needed to attatch
+  graphql(getAuthorsQuery, { name: "getAuthorsQuery" }),
   graphql(addBookMutation, { name: "addBookMutation" }),
-  // this.props.data is split into these 2 properties named
-  // getAuthorsQuery
-  // addBookMutation
 )(AddBook);
+// name is needed to attatch to component
+// this.props.data is split into these 2 properties named
+// getAuthorsQuery
+// addBookMutation
+// export default graphql(getAuthorsQuery)(AddBook)

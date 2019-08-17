@@ -20,8 +20,8 @@ class BookList extends Component {
     }
     return data.books.map(book => (
       <ListGroup.Item
-        key={ book.id }
-        onClick={ (e) => this.setState({ selected: book.id }) }
+        key={book.id}
+        onClick={() => this.setState({ selected: book.id })}
       >
         { book.name }
       </ListGroup.Item>

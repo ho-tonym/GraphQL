@@ -17,7 +17,7 @@ export const getBooksQuery = gql`
     }
   }
 `
-
+// bind query to component, so that component has access to data from query
 export const getBookQuery = gql`
     query ($id: String){
         book(id: $id) {
@@ -46,5 +46,3 @@ export const addBookMutation = gql`
     }
   }
 `
-// construct query,
-// bind query to component, so that component has access to data from query

@@ -36,6 +36,7 @@ const BookType = new GraphQLObjectType({
   }),
 })
 
+// defines how we can jump into the graph to get data
 // dont need to wrap fields here in a functio because order isnt important
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -68,15 +69,6 @@ const RootQuery = new GraphQLObjectType({
     },
   },
 })
-// defines how we can jump into the graph to get data
-
-// book query which can be found in book object type
-// {
-//   books{
-//     name
-//     genre
-//   }
-// }
 
 // mutations determine what can be changed - like post,delete,update
 const Mutation = new GraphQLObjectType({
@@ -116,14 +108,6 @@ const Mutation = new GraphQLObjectType({
     },
   },
 });
-
-// when author is recieved, whats the return value?
-// mutation {
-//   addAuthor(name: "Clayton", age:25){
-//     name
-//     age
-//   }
-// }
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
