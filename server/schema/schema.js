@@ -4,6 +4,7 @@ const Author = require('../models/author');
 
 const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLID, GraphQLInt, GraphQLList, GraphQLNonNull } = graphql
 
+// ObjectTypes
 const AuthorType = new GraphQLObjectType({
   name: 'Author',
   fields: () => ({
@@ -19,8 +20,6 @@ const AuthorType = new GraphQLObjectType({
   }),
 })
 
-
-// wrapped in es6 function that return grpahql object
 const BookType = new GraphQLObjectType({
   name: 'Book',
   fields: () => ({
@@ -36,15 +35,14 @@ const BookType = new GraphQLObjectType({
   }),
 })
 
-// defines how we can jump into the graph to get data
-// dont need to wrap fields here in a functio because order isnt important
+// Queries- where we can jump in to get data
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     book: {
       type: BookType,
-      args: { id: { type: GraphQLString } }, // argumemt when querying a book
-      resolve(parent, args) { // parent- realtes to db | args- defined above
+      args: { id: { type: GraphQLString } },
+      resolve(parent, args) {
         return Book.findById(args.id);
       },
     },
@@ -70,7 +68,7 @@ const RootQuery = new GraphQLObjectType({
   },
 })
 
-// mutations determine what can be changed - like post,delete,update
+// Mutations
 const Mutation = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
@@ -100,8 +98,6 @@ const Mutation = new GraphQLObjectType({
           name: args.name,
           genre: args.genre,
           authorId: args.authorId,
-          // ids are automatically created when submitting data,
-          // so we use the correlated author's id in the db
         });
         return book.save();
       },

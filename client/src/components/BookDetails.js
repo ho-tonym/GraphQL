@@ -48,7 +48,3 @@ export default graphql(getBookQuery, {
     },
   }),
 })(BookDetails)
-
-// whenever prop is updated,
-// this is rerun and resets the variable for this query to the
-// variable- which is bookId

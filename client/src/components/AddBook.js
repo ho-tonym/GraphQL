@@ -4,7 +4,6 @@ import { graphql } from 'react-apollo'
 import { flowRight as compose } from 'lodash';
 import { getAuthorsQuery, addBookMutation, getBooksQuery } from '../queries/queries';
 
-
 class AddBook extends Component {
   constructor(props) {
     super(props);
