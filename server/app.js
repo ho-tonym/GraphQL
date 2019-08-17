@@ -1,8 +1,13 @@
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
+const mongoose = require('mongoose');
 const schema = require('./schema/schema');
 
+
 const app = express();
+const mongoURI = process.env.MONGODB_URI || require('./config/keys').mongoURI
+
+mongoose.connect(mongoURI, { useNewUrlParser: true })
 
 // bind express with graphql
 app.use('/graphql', graphqlHTTP({
