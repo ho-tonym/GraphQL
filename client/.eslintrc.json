@@ -37,5 +37,6 @@
       "object-curly-newline" : "off",
       "lines-between-class-members" : "off",
       "max-len":"off"
-    }
+    },
+    "parser": "babel-eslint"
 }
